@@ -2,9 +2,8 @@ class Solution {
 public:
     int numberOfBeams(vector<string>& bank) {
         int ans = 0;
+        int prev = 0;
         int ocnt = 0;
-        vector<int>v;
-        int k=0;
         for(int i=0;i<bank.size();i++)
         {
            ocnt = 0;
@@ -12,12 +11,10 @@ public:
            {
             if(bank[i][j] == '1') ocnt++;
            }
-           if(ocnt>=1)v.push_back(ocnt);
-           if(v.size() > 1 && ocnt >= 1)
+           if(ocnt > 0)
            {
-            cout<<ocnt<<" ";
-            ans += ocnt*(v[k]);
-            k++;
+            ans += ocnt * prev;
+            prev = ocnt;
            }
         }
         return ans;
