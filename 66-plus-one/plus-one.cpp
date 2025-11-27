@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int carry = 0;
+        int  n = digits.size();
+        digits[n-1] = digits[n-1] + 1;
+        if(digits[n-1] > 9)
+            {
+                carry = digits[n-1]/10;
+                digits[n-1] = digits[n-1]%10;
+            }
+        for(int i = n-2;i>=0;i--)
+        {
+            digits[i] = digits[i]  + carry;
+            if(digits[i] > 9)
+            {
+                carry = digits[i]/10;
+                digits[i] = digits[i]%10;
+            }
+            else
+            {
+                carry = 0;
+            }
+        }
+        if(carry > 0)
+        {
+            digits.insert(digits.begin(),carry);
+        }
+        return digits;
+    }
+};
