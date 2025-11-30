@@ -18,7 +18,7 @@ public:
             pre += nums[i];
             int temp = (pre % p);
             int temp1 = (temp - rem + p) % p;
-            if(mp.count(temp1))
+            if(mp.find(temp1) != mp.end())
             {
                 ans = min(ans,i-mp[temp1]);
             }
