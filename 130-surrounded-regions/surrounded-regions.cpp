@@ -23,7 +23,6 @@ public:
         while(!q.empty())
         {
             auto top = q.front();
-            cout<<top.first<<" "<<top.second<<endl;
             int r = top.first;
             int c = top.second;
             q.pop();
