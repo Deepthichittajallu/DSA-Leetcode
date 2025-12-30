@@ -6,7 +6,7 @@ public:
         for(int i=row;i<row+3;i++){
             for(int j=col;j<col+3;j++){
                 int v = grid[i][j];
-                if(v < 1 || v > 9) return false; // must be 1..9
+                if(v < 1 || v > 9) return false;
                 vals.push_back(v);
             }
         }
