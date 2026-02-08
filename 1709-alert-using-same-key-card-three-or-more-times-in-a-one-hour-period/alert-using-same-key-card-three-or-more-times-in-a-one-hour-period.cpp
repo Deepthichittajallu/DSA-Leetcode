@@ -33,8 +33,6 @@ bool fun(int hr1,int min1,int hr2,int min2,int hr3,int min3)
     int d = min3 - min2;
     int e = abs(hr3 - hr1);
     int f = min3 - min1;
-    // cout<<a<<" "<<b<<" "<<c<<" "<<d<<" "<<e<<" "<<f<<endl;
-    // cout<<(a*60 + b)<<" "<<(c*60 + d)<<" "<<(e*60 + f )<<endl;
     if((a*60 + b) <= 60 && (c*60 + d) <= 60 && (e*60 + f )<= 60) return true;
     return false;
 }
@@ -46,16 +44,6 @@ bool fun(int hr1,int min1,int hr2,int min2,int hr3,int min3)
             mp[keyName[i]].push_back(keyTime[i]);
         }
         vector<string>res;
-        // for(auto it:mp)
-        // {
-        //     sort(it.second.begin(),it.second.end());
-        //     cout<<it.first<<"--";
-        //     for(int i=0;i<it.second.size();i++)
-        //     {
-        //         cout<<it.second[i]<<" ";
-        //     }
-        //     cout<<endl;
-        // }
         for(auto it:mp)
         {
             auto v = it.second;
@@ -73,12 +61,6 @@ bool fun(int hr1,int min1,int hr2,int min2,int hr3,int min3)
                     res.push_back(it.first);
                 break;
                 }
-               
-                // if(cnt == 3) 
-                // {
-                //     res.push_back(it.first);
-                //     break;
-                // }
             }
         }
         return res;
