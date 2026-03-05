@@ -22,7 +22,6 @@ int fun(string s,char ch)
             cnt++;
         } 
     }
-    cout<<cnt<<endl;
     return cnt;
 }
     int minOperations(string s) {
