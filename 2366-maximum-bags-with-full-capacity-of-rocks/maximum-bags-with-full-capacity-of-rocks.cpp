@@ -13,12 +13,7 @@ public:
         for(auto it:vec)
         {
             int re = it.first.first;
-            if(re <= 0)
-            {   
-                cnt++;
-                 continue;
-            }
-            else if(re > additionalRocks) return cnt;
+            if(re > additionalRocks) return cnt;
             else if(re <= additionalRocks)
             {
                 cnt++;
