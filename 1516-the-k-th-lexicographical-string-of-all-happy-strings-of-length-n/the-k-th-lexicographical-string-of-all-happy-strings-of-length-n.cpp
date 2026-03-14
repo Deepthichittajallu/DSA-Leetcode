@@ -46,10 +46,6 @@ public:
         fun(1,n,str);
         str = "c";
         fun(1,n,str);
-        for(auto it:ans)
-        {
-            cout<<it<<" ";
-        }
         if(k-1 >= ans.size() || k-1 < 0) return "";
         return ans[k-1];
     }
