@@ -1,16 +1,14 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        map<int,int>mp;
         for(int i=0;i<nums.size();i++)
         {
-            mp[nums[i]] = i;
-        }
-        for(int i=0;i<nums.size();i++)
-        {
-            if(mp[target - nums[i]] && i != mp[target - nums[i]])
+            int tar = target - nums[i];
+            int it = find(nums.begin()+i+1,nums.end(),tar) - nums.begin();
+            if(it < nums.size())
             {
-                return {mp[target-nums[i]],i};
+            //    int ind = it - nums.begin();
+                return {i,it};
             }
         }
         return {};
