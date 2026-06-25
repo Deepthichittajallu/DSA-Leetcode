@@ -5,7 +5,7 @@
 using namespace __gnu_pbds;
 class Solution {
 public:
-    typedef tree<int,null_type,less_equal<int>,rb_tree_tag,tree_order_statistics_node_update> pbds;
+    typedef tree<pair<int,int>,null_type,less<pair<int ,int>>,rb_tree_tag,tree_order_statistics_node_update> pbds;
     long long countMajoritySubarrays(vector<int>& nums, int target) {
         pbds os;
         long long ans = 0;
@@ -15,12 +15,12 @@ public:
             else nums[i] = -1;
         }
         int temp = 0;
-        os.insert(0);
-        for(auto it:nums)
+        os.insert({0,-1});
+        for(int i=0;i<nums.size();i++)
         {
-            temp += it;
-            ans += os.order_of_key(temp);
-            os.insert(temp);
+            temp += nums[i];
+            ans += os.order_of_key({temp,-1});
+            os.insert({temp,i});
         }
         return ans;
     }
