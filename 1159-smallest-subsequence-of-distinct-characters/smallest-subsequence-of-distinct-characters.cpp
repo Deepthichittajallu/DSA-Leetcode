@@ -9,17 +9,7 @@ public:
         stack<pair<char,int>>st;
         for(int i=0;i<s.size();i++)
         {
-            if(st.empty())
-            {
-                st.push({s[i],i});
-                vis[s[i]] = 1;
-            }
-            else if(vis[s[i]] == 1) continue;
-            else if(st.top().first < s[i])
-            {
-                st.push({s[i],i});
-                vis[s[i]] = 1;
-            }
+            if(vis[s[i]] == 1) continue;
             else
             {
                 while(!st.empty() && st.top().first > s[i] && ld[st.top().first] > i)
@@ -27,9 +17,9 @@ public:
                      vis[st.top().first] = 0;
                     st.pop();
                 }
-                st.push({s[i], i});
-                vis[s[i]] = 1;
             }
+            st.push({s[i], i});
+            vis[s[i]] = 1;
         }
         string res = "";
         while(!st.empty())
