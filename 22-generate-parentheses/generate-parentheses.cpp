@@ -1,32 +1,21 @@
 class Solution {
 public:
-set<string>res;
-void solve(int n,int open,int close,string &temp)
+vector<string>res;
+void fun(int open,int close,string temp)
 {
-    if(open==close &&open ==n)
+    if(close == 0 && open == 0)
     {
-        res.insert(temp);
+        res.push_back(temp);
         return;
     }
-    if(open <= n) 
-    {
-        temp += '(';
-        solve(n,open+1,close,temp);
-        temp.pop_back();
-    }
-    if(open > close)
-    {
-        temp += ')';
-        solve(n,open,close+1,temp);
-        temp.pop_back();
-    }
+    if(open > 0) fun(open-1,close,temp+'(');
+    if(close > open) fun(open,close-1,temp+')');
 }
     vector<string> generateParenthesis(int n) {
-       string temp = "(";
-        int open = 1;
-        int close = 0;
-        solve(n,open,close,temp);
-        vector<string>ans(res.begin(),res.end());
-        return ans;
+        string temp = "(";
+        int open = n;
+        int close = n;
+        fun(open-1,close,temp);
+        return res;
     }
 };
