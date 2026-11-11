@@ -15,9 +15,8 @@ public:
         {
             e = (need2-maxi)* cost2;
         }
-        long long ans = min((a+b),c);
-        long long ans2 = min(min((a+b),c),(d+e));
-        return ans2;
+        long long ans = min(min((a+b),c),(d+e));
+        return ans;
         
     }
 };
